@@ -9,9 +9,7 @@ namespace Data_Structures_From_Scratch
         {
             var rnd = new Random();
             var list = new LinkedList.LinkedList<int>(new Node<int>(rnd.Next()), new Node<int>(rnd.Next()));
-
             list.DisplayLinkedList();
-            Console.WriteLine("Hello, World!");
         }
     }
 }
