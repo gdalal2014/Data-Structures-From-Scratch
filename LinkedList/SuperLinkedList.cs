@@ -5,26 +5,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace LinkedList
+namespace SuperLinkedList
 {
-    public class LinkedList<T> where T : IComparable<T>
+    public class SuperLinkedList<T> where T : IComparable<T>
     {
 
-        public Node<T>? First { get; private set; } 
-        public Node<T>? Last { get; private set; }
+        public SuperNode<T>? First { get; private set; } 
+        public SuperNode<T>? Last { get; private set; }
 
 
-        public LinkedList()
+        public SuperLinkedList()
         {
         }
-        public LinkedList(Node<T> first)
+        public SuperLinkedList(SuperNode<T> first)
         {
             First = first;
             Last = First;
             First.Next = null;
             Last.Next = null;
         }
-        public LinkedList(Node<T> first, Node<T> last) 
+        public SuperLinkedList(SuperNode<T> first, SuperNode<T> last) 
         {
             First = first;
             Last = last;
@@ -33,7 +33,7 @@ namespace LinkedList
         }
 
 
-        public void InsertAtFirst (Node<T> node)
+        public void InsertAtFirst (SuperNode<T> node)
         {
             node.Next = First;
             Last ??= First;
@@ -52,7 +52,7 @@ namespace LinkedList
 
         }
 
-        public void InsertAtLast(Node<T> node) 
+        public void InsertAtLast(SuperNode<T> node) 
         {
 
             if (Last == null)

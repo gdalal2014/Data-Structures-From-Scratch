@@ -1,4 +1,4 @@
-﻿using LinkedList;
+﻿using SuperLinkedList;
 using System.Security.Cryptography;
 
 namespace Data_Structures_From_Scratch
@@ -8,7 +8,7 @@ namespace Data_Structures_From_Scratch
         static void Main(string[] args)
         {
             var rnd = new Random();
-            var list = new LinkedList.LinkedList<int>(new Node<int>(rnd.Next()), new Node<int>(rnd.Next()));
+            var list = new SuperLinkedList<int>(new SuperNode<int>(rnd.Next()), new SuperNode<int>(rnd.Next()));
             list.DisplayLinkedList();
         }
     }
