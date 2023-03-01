@@ -111,15 +111,13 @@ namespace SuperLinkedList
 
         public void DisplayLinkedList()
         {
-            Console.WriteLine();
             if (First == null) return;
             var currentNode = First;
-            while(currentNode?.Next != null)
+            while(currentNode!= null)
             {
                 Console.WriteLine(currentNode?.Data?.ToString());
                 currentNode = currentNode?.Next;
             }
-           if (currentNode?.Next == null && currentNode.Data != null) Console.WriteLine(currentNode?.Data?.ToString());
             Console.WriteLine("End of Linked List");
         }
     }
