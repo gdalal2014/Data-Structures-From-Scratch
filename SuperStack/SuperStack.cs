@@ -8,11 +8,11 @@ namespace SuperStack
 {
     public class SuperStack<T> where T : IComparable<T>
     {
-        public SuperNode<T>? First { get; private set; }
+        public SuperStackNode<T>? First { get; private set; }
         public int? Count { get; private set; }
 
         public SuperStack() { }
-        public SuperStack(SuperNode<T>? first)
+        public SuperStack(SuperStackNode<T>? first)
         {
             Count = 0;
             if (first == null) throw new ArgumentNullException(nameof(first));
@@ -21,7 +21,7 @@ namespace SuperStack
             Count++;
         }
 
-        public void Push(SuperNode<T>? superNode)
+        public void Push(SuperStackNode<T>? superNode)
         {
             if (superNode == null) throw new ArgumentNullException(nameof(superNode));
             var nextNode = First;
@@ -30,7 +30,7 @@ namespace SuperStack
             Count++;
         }
 
-        public SuperNode<T> Pop()
+        public SuperStackNode<T> Pop()
         {
             if (First == null) throw new ArgumentNullException(nameof(First));
             var first = First;
@@ -40,11 +40,40 @@ namespace SuperStack
             return first;
         }
 
-        public SuperNode<T> Peek()
+        public SuperStackNode<T> Peek()
         {
             if (First == null) throw new ArgumentNullException(nameof(First));
             return First;
 
+        }
+
+        public bool FindFirstInstance<TU> (TU instance) where TU : IComparable<TU>
+        {
+            if (First == null) throw new ArgumentNullException(nameof(First));
+
+            var currentNode = First;
+            while (currentNode != null)
+            {
+                if (currentNode != null && currentNode.Data != null && instance != null && Equals(currentNode.Data, instance)) return true;
+                currentNode = currentNode?.Next;
+            }
+
+            return false;
+            
+        }
+
+        public int CountInstance<TU> (TU instance) where TU: IComparable<TU>
+        {
+            var count = 0;
+            if (First == null) throw new ArgumentNullException(nameof(First));
+            var currentNode = First;
+            while (currentNode != null)
+            {
+                if (currentNode != null && currentNode.Data != null && instance != null && Equals(currentNode.Data, instance)) { count++; }
+                currentNode = currentNode?.Next;
+            }
+
+            return count;
         }
 
         public void DisplayStackContents()
@@ -55,7 +84,7 @@ namespace SuperStack
             {
                 Console.WriteLine(currentNode?.Data?.ToString());
                 currentNode = currentNode?.Next;
-            }
+            } 
             Console.WriteLine("End of Stack");
         }
     }

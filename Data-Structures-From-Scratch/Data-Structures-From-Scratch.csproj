@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LinkedList\SuperLinkedList.csproj" />
+    <ProjectReference Include="..\SuperBinarySearchTreee\SuperBinarySearchTree.csproj" />
     <ProjectReference Include="..\SuperStack\SuperStack.csproj" />
   </ItemGroup>
 

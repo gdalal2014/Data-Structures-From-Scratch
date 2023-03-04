@@ -10,21 +10,21 @@ namespace SuperLinkedList
     public class SuperLinkedList<T> where T : IComparable<T>
     {
 
-        public SuperNode<T>? First { get; private set; } 
-        public SuperNode<T>? Last { get; private set; }
+        public SuperLinkedListNode<T>? First { get; private set; } 
+        public SuperLinkedListNode<T>? Last { get; private set; }
 
 
         public SuperLinkedList()
         {
         }
-        public SuperLinkedList(SuperNode<T> first)
+        public SuperLinkedList(SuperLinkedListNode<T> first)
         {
             First = first;
             Last = First;
             First.Next = null;
             Last.Next = null;
         }
-        public SuperLinkedList(SuperNode<T> first, SuperNode<T> last) 
+        public SuperLinkedList(SuperLinkedListNode<T> first, SuperLinkedListNode<T> last) 
         {
             First = first;
             Last = last;
@@ -33,7 +33,7 @@ namespace SuperLinkedList
         }
 
 
-        public void InsertAtFirst (SuperNode<T> node)
+        public void InsertAtFirst (SuperLinkedListNode<T> node)
         {
             node.Next = First;
             Last ??= First;
@@ -52,7 +52,7 @@ namespace SuperLinkedList
 
         }
 
-        public void InsertAtLast(SuperNode<T> node) 
+        public void InsertAtLast(SuperLinkedListNode<T> node) 
         {
 
             if (Last == null)

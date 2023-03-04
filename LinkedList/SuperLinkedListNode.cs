@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SuperStack
+namespace SuperLinkedList
 {
-    public class SuperNode<T> where T : IComparable<T>
+    public class SuperLinkedListNode<T> where T : IComparable<T>
     {
         public T? Data { get; set; }
 
-        public SuperNode<T>? Next { get; set; }
-        public SuperNode(T? data) 
+        public SuperLinkedListNode<T>? Next { get; set; }
+        public SuperLinkedListNode(T? data) 
         {
             Data = data;
         }
