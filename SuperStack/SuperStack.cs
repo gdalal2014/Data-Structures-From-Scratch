@@ -11,7 +11,10 @@ namespace SuperStack
         public SuperStackNode<T>? First { get; private set; }
         public int? Count { get; private set; }
 
-        public SuperStack() { }
+        public SuperStack() {
+            First = null;
+            Count = 0;
+        }
         public SuperStack(SuperStackNode<T>? first)
         {
             Count = 0;

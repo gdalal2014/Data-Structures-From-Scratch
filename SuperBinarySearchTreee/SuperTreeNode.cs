@@ -22,31 +22,28 @@ public class SuperTreeNode<T> where T : IComparable<T>
         Data = default; LeftChild = null; RightChild = null;
     }
 
-    public bool SetLeftChild (SuperTreeNode<T> node)
+    public void SetLeftChild (SuperTreeNode<T>? node)
     {
-        if (node == null || LeftChild != null) return false;
         LeftChild = node;
-        return true;
     }
 
-    public bool SetRightChild(SuperTreeNode<T> node)
+    public void SetData(T data) => this.Data = data;
+
+    public void SetRightChild(SuperTreeNode<T>? node)
     {
-        if (node == null || RightChild != null) return false;
         RightChild = node;
-        return true;
     }
 
-    public bool RemoveLeftChild()
+
+    public bool HasLeftChild()
     {
-        if (LeftChild == null) return true;
-        LeftChild = null;
-        return true;
+        if(LeftChild != null) return true;
+        return false;
     }
 
-    public bool RemoveRightChild()
+    public bool HasRightChild()
     {
-        if (RightChild == null) return true;
-        RightChild = null;
-        return true;
+        if (RightChild != null) return true;
+        return false;
     }
 }
